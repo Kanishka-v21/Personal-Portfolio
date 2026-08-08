@@ -5,6 +5,12 @@ import Monitor from "./Monitor";
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/About";
 import Education from "@/components/portfolio/Education";
+import TechStack from "@/components/portfolio/TechStack";
+import { motion } from "framer-motion";
+import Projects from "@/components/portfolio/Projects";
+import Experience from "@/components/portfolio/Experience";
+import Footer from "@/components/portfolio/Footer";
+
 export default function Homepage() {
   return (
     <main className="w-full">
@@ -17,14 +23,29 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* About */}
+
       <section className="w-full">
         <About />
       </section>
 
-      {/* Education */}
+      <section className="w-full">
+        <TechStack />
+      </section>
+
+      <section className="w-full">
+        <Projects />
+      </section>
+      
+      <section className="w-full">
+        <Experience />
+      </section>
+      
       <section className="w-full">
         <Education />
+      </section>
+
+      <section className="w-full">
+        <Footer />
       </section>
     </main>
   );
