@@ -4,9 +4,19 @@ import { motion } from "framer-motion";
 import Desk from "./Desk";
 import Monitor from "./Monitor";
 import DustParticles from "./DustParticles";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 export default function BootScene() {
+  const router = useRouter();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/portfolio");
+    }, 6000); // adjust timing
+
+    return () => clearTimeout(timer);
+  }, [router]);
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-[#050816]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
@@ -25,7 +35,7 @@ export default function BootScene() {
         top: `${(i * 31) % 100}%`,
         left: `${(i * 17) % 100}%`,
         animation: `float ${5 + (i % 4)}s ease-in-out infinite`,
-        animationDelay: `${Math.random() * 5}s`
+        animationDelay: `${i * 0.2}s`
         }} />
          ))}
 
@@ -41,7 +51,7 @@ export default function BootScene() {
           <DustParticles />
         </div>
       </motion.div>
-
+    
     </main>
   );
 }

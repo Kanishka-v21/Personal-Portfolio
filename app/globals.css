@@ -4,51 +4,79 @@
   --background: #050816;
   --foreground: #ffffff;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body{
-  background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 40%, #050816  100%);
-  color: white;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  color: var(--foreground);
+  background: var(--background);
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: var(--font-inter);
 }
-h1, h2, h3 {
-  font-family: var(--font-space);
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-space-grotesk);
 }
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 20% 20% rgba(139, 92, 246, .15), transparent 30%), radial-gradient(circle at 80% 30% rgba(56, 189, 248, .08), transparent 35%);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(139, 92, 246, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(56, 189, 248, 0.08),
+      transparent 35%
+    );
   pointer-events: none;
-
+  z-index: 0;
 }
+
 .scan-lines {
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 6px);
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: scanMove 8s linear infinite;
+}
 
-  animation: scanMove 8s linear infinite;}
-
-  @keyframes scanMove {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(100%);
-    }
+@keyframes scanMove {
+  from {
+    transform: translateY(-100%);
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  to {
+    transform: translateY(100%);
   }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
