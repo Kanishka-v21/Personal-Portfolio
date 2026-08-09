@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -20,7 +21,7 @@ const experiences = [
     icon: BriefcaseBusiness,
     document: "Offer Letter",
     description: "Internship / Developer Experience",
-    link: "https://drive.google.com/",
+    link: "/experience/internship",
     rotation: -3,
   },
 
@@ -33,7 +34,7 @@ const experiences = [
     icon: Presentation,
     document: "Project PPT",
     description: "Final project presentation",
-    link: "https://drive.google.com/",
+    link: "/experience/hackathon",
     rotation: 2,
   },
 
@@ -46,7 +47,7 @@ const experiences = [
     icon: Award,
     document: "Certificate",
     description: "Certificate of achievement",
-    link: "https://drive.google.com/",
+    link: "/experience/achievement",
     rotation: -2,
   },
 
@@ -59,19 +60,17 @@ const experiences = [
     icon: FileText,
     document: "Experience Proof",
     description: "Supporting document",
-    link: "https://drive.google.com/",
+    link: "/experience/experience",
     rotation: 3,
   },
 ];
-
 export default function Experience() {
+  const router = useRouter();
   return (
     <section
       id="experience"
-      className="relative min-h-screen overflow-hidden bg-[#e8e3d8] px-6 py-28 text-[#17222b] md:px-12 lg:px-20"
-    >
-     
-      <div className="pointer-events-none absolute inset-0">
+      className="relative min-h-screen overflow-hidden bg-[#e8e3d8] px-6 py-28 text-[#17222b] md:px-12 lg:px-20">
+              <div className="pointer-events-none absolute inset-0">
 
         {/* Blue atmospheric glow */}
 
@@ -96,7 +95,7 @@ export default function Experience() {
 
       </div>
 
-      <div className="translate-x-40 translate-y-30 relative z-10 mx-auto max-w-6xl">
+      <div className="relative translate-y-40 translate-x-50 z-10 mx-auto max-w-6xl">
 
         <div className="flex items-end justify-between">
 
@@ -129,6 +128,11 @@ export default function Experience() {
 
         </div>
 
+
+        {/* ================================================= */}
+        {/* ARCHIVE */}
+        {/* ================================================= */}
+
         <div className="relative mt-20">
 
           {/* Horizontal line */}
@@ -155,6 +159,10 @@ export default function Experience() {
         </div>
 
 
+        {/* ================================================= */}
+        {/* BOTTOM ARCHIVE BAR */}
+        {/* ================================================= */}
+
         <div className="mt-20 flex items-center justify-between border-t border-[#17222b]/10 pt-5">
 
           <div className="flex items-center gap-3">
@@ -179,20 +187,13 @@ export default function Experience() {
   );
 }
 
-
-/* ===================================================== */
-/* DOCUMENT */
-/* ===================================================== */
-
 function Document({ experience, index }) {
-
-  const Icon = experience.icon;
+const Icon = experience.icon;
+  const router = useRouter();
 
   return (
-    <motion.a
-      href={experience.link}
-      target="_blank"
-      rel="noopener noreferrer"
+    <motion.div
+      onClick={() => router.push(experience.link)}
 
       initial={{
         opacity: 0,
@@ -391,6 +392,7 @@ function Document({ experience, index }) {
 
       </div>
 
-    </motion.a>
+    </motion.div>
   );
 }
+

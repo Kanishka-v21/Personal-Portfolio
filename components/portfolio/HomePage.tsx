@@ -4,12 +4,11 @@ import Background from "./Background";
 import Monitor from "./Monitor";
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/About";
-import Education from "@/components/portfolio/Education";
 import TechStack from "@/components/portfolio/TechStack";
 import { motion } from "framer-motion";
 import Projects from "@/components/portfolio/Projects";
+import Navbar from "../Navbar";
 import Experience from "@/components/portfolio/Experience";
-import Footer from "@/components/portfolio/Footer";
 
 export default function Homepage() {
   return (
@@ -23,6 +22,8 @@ export default function Homepage() {
         </div>
       </section>
 
+      <Navbar />
+
 
       <section className="w-full">
         <About />
@@ -35,18 +36,11 @@ export default function Homepage() {
       <section className="w-full">
         <Projects />
       </section>
-      
+
       <section className="w-full">
         <Experience />
       </section>
       
-      <section className="w-full">
-        <Education />
-      </section>
-
-      <section className="w-full">
-        <Footer />
-      </section>
     </main>
   );
 }
