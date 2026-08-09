@@ -40,7 +40,7 @@ export default function Homepage() {
       <section className="w-full">
         <Experience />
       </section>
-      
+    
     </main>
   );
 }

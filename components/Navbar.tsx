@@ -17,7 +17,7 @@ const navItems = [
   {
     number: "02",
     label: "Journey",
-    href: "/#projects",
+    href: "/journey",
   },
   {
     number: "03",
@@ -31,18 +31,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* =================================================
-          NAVBAR
-      ================================================= */}
-
+    
       <header className="fixed left-0 right-0 top-0 z-[100] pointer-events-none">
 
         <div className="mx-auto flex max-w-[1400px] justify-between px-6 py-6 md:px-10">
-
-          {/* =================================================
-              LOGO
-          ================================================= */}
-
           <Link
             href="/"
             className="
